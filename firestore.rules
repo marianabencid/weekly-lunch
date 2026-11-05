@@ -1,0 +1,10 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Solo se puede leer y escribir dentro de /familias/{codigo}/..., y el código debe tener 12+ caracteres.
+    // No existe ninguna regla para listar /familias, así que nadie puede descubrir códigos ajenos.
+    match /familias/{codigo}/{ruta=**} {
+      allow read, write: if codigo.size() >= 12 && codigo.size() <= 60;
+    }
+  }
+}

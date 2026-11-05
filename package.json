@@ -1,0 +1,13 @@
+{
+  "name": "almuerzos-pwa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Planificador de almuerzos (PWA) con Firestore",
+  "scripts": {
+    "build": "esbuild src/firebase-db.src.js --bundle --minify --format=iife --target=es2019 --outfile=firebase-db.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "firebase": "^10.14.1"
+  }
+}
